@@ -17,7 +17,9 @@
         <tags>m2m mqtt queue messaging internetofthings iot cloud netmf embedded micro netduino micro-framework hardware winrt windows8 windows8.1 windowsphone windowsphone8.1 gadgeteer</tags>
     </metadata>
     <files>
-		<file src="bin\Release\M2Mqtt.Net\*.*" target="lib\net45" />
+        <file src="bin\Release\M2Mqtt.NetStd\*.*" target="lib\netstd21" />
+        <file src="bin\Release\M2Mqtt.NET\*.*" target="lib\net9" />
+		<file src="bin\Release\M2Mqtt.NetF\*.*" target="lib\net48" />
 		<file src="bin\Release\M2Mqtt.NetCf39\*.*" target="lib\net39-cf" />
 		<file src="bin\Release\M2Mqtt.NetMf42\*.*" target="lib\netmf42" />
 		<file src="bin\Release\M2Mqtt.NetMf42\le\*.p*" target="lib\netmf42\le" />

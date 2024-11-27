@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <defineConstants>TRACE;NET9;SSL</defineConstants>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>    
+  </PropertyGroup>
+
+  <ItemGroup>
+    
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="WinRT\**\*.cs" />
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <OutputPath>..\bin\Debug\M2Mqtt.NET</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <OutputPath>..\bin\Release\M2Mqtt.NET</OutputPath>
+  </PropertyGroup>
+  
+</Project>
