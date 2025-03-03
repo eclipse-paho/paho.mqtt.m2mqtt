@@ -174,6 +174,9 @@ namespace uPLibrary.Networking.M2Mqtt.Messages
                     digit = digit | 0x80;
                 buffer[index++] = (byte)digit;
             } while (remainingLength > 0);
+
+            if (index > 4) // 4 bytes [0..3] is the maximum allowed (2.2.3 Remaining Length)
+                throw new MqttClientException(MqttClientErrorCode.InvalidLength);
             return index;
         }
 
@@ -188,6 +191,7 @@ namespace uPLibrary.Networking.M2Mqtt.Messages
             int value = 0;
             int digit = 0;
             byte[] nextByte = new byte[1];
+            int index = 0;
             do
             {
                 // next digit from stream
@@ -195,6 +199,10 @@ namespace uPLibrary.Networking.M2Mqtt.Messages
                 digit = nextByte[0];
                 value += ((digit & 127) * multiplier);
                 multiplier *= 128;
+                ++index;
+
+                if (index > 4) // 4 bytes [0..3] is the maximum allowed (2.2.3 Remaining Length)
+                    throw new MqttClientException(MqttClientErrorCode.InvalidLength);
             } while ((digit & 128) != 0);
             return value;
         }

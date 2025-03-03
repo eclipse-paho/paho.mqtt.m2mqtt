@@ -127,6 +127,12 @@ namespace uPLibrary.Networking.M2Mqtt.Exceptions
         /// <summary>
         /// Invalid protocol name
         /// </summary>
-        InvalidProtocolName
+        InvalidProtocolName,
+
+        // [v3.1.1]
+        /// <summary>
+        /// Invalid message length
+        /// </summary>
+        InvalidLength
     }
 }
